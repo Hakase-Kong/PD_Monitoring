@@ -631,6 +631,7 @@ def llm_filter_items(items: List[dict], cfg: dict, env: dict) -> List[dict]:
                         "or private credit fund activities are involved or plausibly involved. "
                         "Exclude pure equity M&A, general bank lending news, vanilla bond issuance, stock market news, "
                         "and general macro commentary unless clearly tied to private debt/private credit. "
+                        "Refinancing alone is NOT sufficient unless private credit funds, non-bank lenders, or acquisition financing structures are clearly involved."
                         "Return JSON only."
                     ),
                 },
