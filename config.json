@@ -364,7 +364,6 @@
   "ALLOWLIST_STRICT": true,
 
   "NAVER_ALLOW_SIDS": [
-    "101"
   ],
 
   "NEWSAPI_DOMAINS": [
