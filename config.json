@@ -18,11 +18,7 @@
     "special situations",
     "special sits",
     "distressed debt",
-    "unitranche",
-    "리파이낸싱",
-    "브릿지론",
-    "NPL 투자",
-    "부실채권 투자"
+    "unitranche"
   ],
 
   "KEYWORD_ALIASES": {
@@ -158,11 +154,6 @@
     "special sits",
     "distressed debt",
     "unitranche",
-    "리파이낸싱",
-    "브릿지론",
-    "메자닌",
-    "NPL",
-    "부실채권",
     "대주단",
     "주선",
     "클로징",
@@ -219,7 +210,11 @@
     "유동화증권",
     "ABS",
     "ABSTB",
-    "Science in Biz"
+    "Science in Biz",
+    "CEO",
+    "경영 체제",
+    "경영 정상화",
+    "오너 2세"
   ],
 
   "EXCLUDE_TITLE_REGEX": [
@@ -230,7 +225,10 @@
     "(회사채|신종자본증권|영구채|ABS|ABSTB|유동화증권)",
     "(이란|트럼프|엔비디아|슈퍼컴)",
     "(리스크 관리|AI로 다시 설계|Science in Biz)",
-    "(브릿지론이 뭐길래|PF 규제의 역설)"
+    "(브릿지론이 뭐길래|PF 규제의 역설)",
+    "(CMBS|부동산운용사|건물만 파는 시대 끝)",
+    "(CEO|대표이사|경영 체제|오너 2세|장수 CEO)",
+    "(PF.*회생 가능성|PF.*안갯속|본 PF 전환|브릿지론 연장)"
   ],
 
   "DOMAIN_WEIGHTS": {
@@ -257,11 +255,7 @@
     "대주단",
     "주선",
     "투자",
-    "매입",
-    "리파이낸싱",
-    "브릿지론",
-    "NPL",
-    "부실채권"
+    "매입"
   ],
 
   "TRUSTED_SOURCES_FOR_FI": [
@@ -290,11 +284,6 @@
     "special sits",
     "distressed debt",
     "unitranche",
-    "리파이낸싱",
-    "브릿지론",
-    "메자닌",
-    "NPL",
-    "부실채권",
     "대주단",
     "주선",
     "운용사",
@@ -385,7 +374,7 @@
     "n.news.naver.com"
   ],
 
-  "NEWSAPI_QUERY": "(\"private debt\" OR \"private credit\" OR 사모대출 OR 직접대출 OR 인수금융 OR \"credit fund\" OR \"private credit fund\" OR \"NAV financing\" OR \"special situations\" OR \"distressed debt\" OR unitranche OR 리파이낸싱 OR 브릿지론 OR NPL)",
+  "NEWSAPI_QUERY": "(\"private debt\" OR \"private credit\" OR 사모대출 OR 직접대출 OR 인수금융 OR \"credit fund\" OR \"private credit fund\" OR \"NAV financing\" OR \"special situations\" OR \"distressed debt\" OR unitranche)",
 
   "USE_LLM_FILTER": true,
   "LLM_MODEL": "gpt-4o-mini",
