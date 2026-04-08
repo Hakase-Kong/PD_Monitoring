@@ -631,9 +631,9 @@ def llm_filter_items(items: List[dict], cfg: dict, env: dict) -> List[dict]:
                         "or private credit fund activities are involved or plausibly involved. "
                         "Exclude pure equity M&A, general bank lending news, vanilla bond issuance, stock market news, "
                         "and general macro commentary unless clearly tied to private debt/private credit. "
-                        "Refinancing alone is NOT sufficient unless private credit funds, non-bank lenders, or acquisition financing structures are clearly involved."
-                        "Articles are relevant only if private debt/private credit is a main topic, a core financing structure, or a meaningful investment strategy discussed in the article; a passing mention is not enough. "
-                        "Exclude generic PF, bridge loan, NPL, or asset quality articles unless the article clearly focuses on private credit investors, non-bank lenders, credit funds, or an investable private debt opportunity. "
+                        "Refinancing alone is NOT sufficient unless private credit funds, non-bank lenders, or acquisition financing structures are clearly involved. "
+                        "Articles are relevant only if private debt/private credit is a MAIN topic or core investment theme; a passing mention is NOT sufficient. "
+                        "Exclude generic PF, bridge loan, NPL, asset quality, company management, or macro/geopolitical articles unless private credit investors, funds, or lending structures are central to the story. "
                         "Return JSON only."
                     ),
                 },
