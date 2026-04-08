@@ -11,36 +11,18 @@
     "인수금융",
     "LBO financing",
     "acquisition financing",
-    "메자닌",
-    "후순위대출",
-    "선순위대출",
-    "senior debt",
-    "junior debt",
-    "unitranche",
-    "NAV financing",
-    "NAV 파이낸싱",
-    "special situations",
-    "special sits",
-    "distressed debt",
-    "stressed debt",
-    "구조화금융",
-    "structured credit",
-    "브릿지론",
-    "bridge loan",
-    "리파이낸싱",
-    "refinancing",
-    "차환",
-    "대출 매각",
-    "채권 매각",
-    "부실채권",
-    "NPL",
-    "워크아웃",
-    "회생채권",
     "credit fund",
     "private credit fund",
     "크레딧 펀드",
-    "사모신용",
-    "사모채권"
+    "NAV financing",
+    "special situations",
+    "special sits",
+    "distressed debt",
+    "unitranche",
+    "리파이낸싱",
+    "브릿지론",
+    "NPL 투자",
+    "부실채권 투자"
   ],
 
   "KEYWORD_ALIASES": {
@@ -62,30 +44,10 @@
       "buyout financing",
       "인수금융"
     ],
-    "메자닌": [
-      "전환사채",
-      "교환사채",
-      "신주인수권부사채",
-      "CB",
-      "EB",
-      "BW"
-    ],
-    "후순위대출": [
-      "junior debt",
-      "subordinated debt",
-      "후순위",
-      "후순위성 차입"
-    ],
-    "선순위대출": [
-      "senior debt",
-      "senior secured loan",
-      "선순위",
-      "선순위 담보대출"
-    ],
-    "unitranche": [
-      "유닛랜치",
-      "unitranche financing",
-      "one-stop financing"
+    "credit fund": [
+      "private credit fund",
+      "크레딧 펀드",
+      "사모신용펀드"
     ],
     "NAV financing": [
       "NAV loan",
@@ -94,37 +56,45 @@
     ],
     "special situations": [
       "special sits",
+      "스페셜시츄에이션",
       "구조조정 금융",
       "상황형 투자"
     ],
     "distressed debt": [
       "stressed debt",
-      "부실채권",
-      "NPL",
-      "워크아웃",
-      "회생채권"
+      "distressed",
+      "부실채권 투자",
+      "NPL 투자",
+      "회생채권 투자"
+    ],
+    "unitranche": [
+      "유닛랜치",
+      "unitranche financing",
+      "one-stop financing"
     ],
     "리파이낸싱": [
       "refinancing",
-      "리캡",
       "차환",
-      "차환발행",
-      "차환대출"
+      "차환대출",
+      "리캡"
     ],
     "브릿지론": [
       "bridge loan",
       "브릿지 파이낸싱",
       "bridge financing"
     ],
-    "credit fund": [
-      "private credit fund",
-      "크레딧 펀드",
-      "사모신용펀드"
+    "메자닌": [
+      "전환사채",
+      "교환사채",
+      "신주인수권부사채",
+      "CB",
+      "EB",
+      "BW"
     ],
-    "구조화금융": [
-      "structured credit",
-      "구조화 크레딧",
-      "구조화 투자"
+    "NPL": [
+      "부실채권",
+      "회생채권",
+      "non-performing loan"
     ]
   },
 
@@ -143,14 +113,16 @@
     "Davidson Kempner",
     "Cerberus",
     "Bain Capital Credit",
-    "Apollo Global Management",
     "IMM",
     "MBK",
     "한앤컴퍼니",
     "VIG",
     "스틱인베스트먼트",
     "맥쿼리",
-    "KCGI"
+    "KCGI",
+    "메리츠",
+    "한국투자",
+    "산업은행"
   ],
 
   "ALLOW_DOMAINS": [
@@ -174,26 +146,29 @@
     "사모크레딧",
     "직접대출",
     "direct lending",
+    "direct lender",
     "인수금융",
-    "LBO",
-    "메자닌",
-    "후순위대출",
-    "선순위대출",
-    "unitranche",
-    "NAV",
-    "리파이낸싱",
-    "차환",
-    "브릿지론",
-    "구조화금융",
-    "structured credit",
+    "LBO financing",
+    "acquisition financing",
+    "credit fund",
+    "private credit fund",
+    "크레딧 펀드",
+    "NAV financing",
     "special situations",
+    "special sits",
     "distressed debt",
+    "unitranche",
+    "리파이낸싱",
+    "브릿지론",
+    "메자닌",
     "NPL",
     "부실채권",
-    "credit fund",
-    "크레딧 펀드",
-    "사모신용",
-    "사모채권"
+    "대주단",
+    "주선",
+    "클로징",
+    "펀드 결성",
+    "펀드레이징",
+    "투자유치"
   ],
 
   "EXCLUDE_TITLE_KEYWORDS": [
@@ -230,36 +205,63 @@
     "코스닥",
     "환율",
     "기준금리",
-    "소비자물가"
+    "소비자물가",
+    "실적",
+    "1분기",
+    "2분기",
+    "3분기",
+    "4분기",
+    "영업이익",
+    "순이익",
+    "신종자본증권",
+    "영구채",
+    "회사채",
+    "유동화증권",
+    "ABS",
+    "ABSTB",
+    "Science in Biz"
   ],
 
   "EXCLUDE_TITLE_REGEX": [
     "(상속세|물납|종부세|국세청)",
     "(야구|축구|배구|농구|골프|e스포츠)",
-    "(연예|팬미팅|콘서트|뮤직비디오|공연|축제|페스티벌)"
+    "(연예|팬미팅|콘서트|뮤직비디오|공연|축제|페스티벌)",
+    "(실적|분기|매출|영업이익|순이익)",
+    "(회사채|신종자본증권|영구채|ABS|ABSTB|유동화증권)",
+    "(이란|트럼프|엔비디아|슈퍼컴)",
+    "(리스크 관리|AI로 다시 설계|Science in Biz)",
+    "(브릿지론이 뭐길래|PF 규제의 역설)"
   ],
 
   "DOMAIN_WEIGHTS": {
     "www.thebell.co.kr": 3.0,
     "www.investchosun.com": 3.0,
-    "dealsite.co.kr": 2.0,
+    "dealsite.co.kr": 2.2,
     "news.naver.com": 1.0,
     "n.news.naver.com": 1.0
   },
 
   "STRICT_AMBIGUOUS_TOKENS": [
-    "대출",
-    "차입",
-    "차환",
-    "리파이낸싱",
+    "프라이빗데트",
+    "private debt",
+    "private credit",
+    "사모대출",
+    "직접대출",
     "인수금융",
-    "메자닌",
+    "credit fund",
+    "private credit fund",
+    "NAV financing",
+    "special situations",
+    "distressed debt",
+    "unitranche",
+    "대주단",
+    "주선",
+    "투자",
+    "매입",
+    "리파이낸싱",
     "브릿지론",
     "NPL",
-    "부실채권",
-    "채권 매각",
-    "대출 매각",
-    "구조화금융"
+    "부실채권"
   ],
 
   "TRUSTED_SOURCES_FOR_FI": [
@@ -279,28 +281,31 @@
     "직접대출",
     "direct lending",
     "인수금융",
-    "메자닌",
-    "후순위대출",
-    "선순위대출",
-    "unitranche",
-    "NAV financing",
-    "NAV 파이낸싱",
-    "리파이낸싱",
-    "차환",
-    "브릿지론",
-    "구조화금융",
-    "structured credit",
-    "special situations",
-    "special sits",
-    "distressed debt",
-    "stressed debt",
-    "NPL",
-    "부실채권",
-    "워크아웃",
-    "회생채권",
+    "LBO financing",
     "credit fund",
     "private credit fund",
     "크레딧 펀드",
+    "NAV financing",
+    "special situations",
+    "special sits",
+    "distressed debt",
+    "unitranche",
+    "리파이낸싱",
+    "브릿지론",
+    "메자닌",
+    "NPL",
+    "부실채권",
+    "대주단",
+    "주선",
+    "운용사",
+    "펀드",
+    "투자자",
+    "클로징",
+    "펀드레이징",
+    "출자",
+    "매입",
+    "인수",
+    "자금조달",
     "Apollo",
     "Ares",
     "Blue Owl",
@@ -313,12 +318,9 @@
     "Carlyle",
     "PIMCO",
     "Davidson Kempner",
-    "재무자문",
-    "법률자문",
-    "주관사",
-    "대주단",
-    "신디케이션",
-    "차환 발행"
+    "메리츠",
+    "산업은행",
+    "한국투자"
   ],
 
   "SCHEDULE_MODE": "주기(분)",
@@ -328,8 +330,8 @@
   "CRON_HOUR": 9,
   "CRON_MINUTE": 0,
 
-  "RECENCY_HOURS": 24,
-  "CACHE_RETENTION_HOURS": 48,
+  "RECENCY_HOURS": 48,
+  "CACHE_RETENTION_HOURS": 72,
   "ONLY_WORKING_HOURS": true,
   "BLOCK_WEEKEND": false,
   "BLOCK_HOLIDAY": false,
@@ -353,7 +355,10 @@
     "VIG",
     "스틱",
     "맥쿼리",
-    "KCGI"
+    "KCGI",
+    "메리츠",
+    "산업은행",
+    "한국투자"
   ],
 
   "HOLIDAYS": [],
@@ -362,11 +367,11 @@
   "SHOW_SOURCE_DOMAIN": false,
   "NO_NEWS_SILENT": true,
 
-  "MAX_PER_KEYWORD": 8,
-  "PAGE_SIZE": 30,
-  "INTERVAL_MIN": 1440,
+  "MAX_PER_KEYWORD": 6,
+  "PAGE_SIZE": 25,
+  "INTERVAL_MIN": 720,
 
-  "ALLOWLIST_STRICT": false,
+  "ALLOWLIST_STRICT": true,
 
   "NAVER_ALLOW_SIDS": [
     "101"
@@ -380,17 +385,17 @@
     "n.news.naver.com"
   ],
 
-  "NEWSAPI_QUERY": "(\"private debt\" OR \"private credit\" OR 사모대출 OR 사모크레딧 OR 직접대출 OR \"direct lending\" OR 인수금융 OR 메자닌 OR 후순위대출 OR 선순위대출 OR unitranche OR \"NAV financing\" OR 리파이낸싱 OR 차환 OR 브릿지론 OR \"special situations\" OR \"distressed debt\" OR NPL OR 부실채권 OR \"credit fund\")",
+  "NEWSAPI_QUERY": "(\"private debt\" OR \"private credit\" OR 사모대출 OR 직접대출 OR 인수금융 OR \"credit fund\" OR \"private credit fund\" OR \"NAV financing\" OR \"special situations\" OR \"distressed debt\" OR unitranche OR 리파이낸싱 OR 브릿지론 OR NPL)",
 
   "USE_LLM_FILTER": true,
   "LLM_MODEL": "gpt-4o-mini",
-  "LLM_CONF_THRESHOLD": 0.7,
+  "LLM_CONF_THRESHOLD": 0.82,
   "LLM_MAX_TOKENS": 400,
 
   "USE_LLM_DEDUP": true,
   "LLM_DEDUP_WINDOW_HOURS": 48,
 
-  "TITLE_SIM_XSRC": 0.58,
+  "TITLE_SIM_XSRC": 0.6,
   "TITLE_SIM_SAMESRC": 0.58,
   "SAME_SOURCE_WINDOW_HOURS": 24,
 
@@ -402,13 +407,16 @@
     "direct lending": "직접대출",
     "direct lender": "직접대출",
     "special situations": "special sits",
-    "distressed debt": "부실채권",
-    "stressed debt": "부실채권",
+    "스페셜시츄에이션": "special sits",
+    "distressed debt": "distressed debt",
+    "stressed debt": "distressed debt",
+    "credit fund": "credit fund",
+    "private credit fund": "credit fund",
+    "nav loan": "NAV financing",
+    "nav 파이낸싱": "NAV financing",
+    "unitranche financing": "unitranche",
     "refinancing": "리파이낸싱",
     "bridge loan": "브릿지론",
-    "structured credit": "구조화금융",
-    "unitranche financing": "unitranche",
-    "senior secured loan": "선순위대출",
-    "subordinated debt": "후순위대출"
+    "non-performing loan": "NPL"
   }
 }
