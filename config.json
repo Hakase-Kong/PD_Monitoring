@@ -5,9 +5,17 @@
     "private credit",
     "사모대출",
     "사모크레딧",
+    "사모신용",
     "직접대출",
     "direct lending",
     "direct lender",
+    "private lending",
+    "private loan",
+    "private loan market",
+    "alternative credit",
+    "non-bank lending",
+    "non-bank lender",
+    "institutional lending",
     "인수금융",
     "LBO financing",
     "acquisition financing",
@@ -18,7 +26,22 @@
     "special situations",
     "special sits",
     "distressed debt",
-    "unitranche"
+    "unitranche",
+    "asset-based finance",
+    "asset-based lending",
+    "ABL",
+    "sponsor-backed lending",
+    "middle market lending",
+    "opportunistic credit",
+    "credit opportunities",
+    "블루아울",
+    "Blue Owl",
+    "Apollo",
+    "Ares",
+    "Oaktree",
+    "Golub",
+    "HPS",
+    "Sixth Street"
   ],
 
   "KEYWORD_ALIASES": {
@@ -33,6 +56,28 @@
       "direct lending",
       "direct lender",
       "사모대출"
+    ],
+    "private lending": [
+      "private loan",
+      "private loan market",
+      "사모대출",
+      "사모신용"
+    ],
+    "alternative credit": [
+      "private credit",
+      "alternative lending",
+      "대체신용"
+    ],
+    "non-bank lending": [
+      "non-bank lender",
+      "비은행 대출",
+      "비은행 대주"
+    ],
+    "asset-based lending": [
+      "asset-based finance",
+      "ABL",
+      "자산기초대출",
+      "자산담보대출"
     ],
     "인수금융": [
       "LBO financing",
@@ -68,6 +113,15 @@
       "unitranche financing",
       "one-stop financing"
     ],
+    "opportunistic credit": [
+      "credit opportunities",
+      "opportunistic debt",
+      "기회형 크레딧"
+    ],
+    "middle market lending": [
+      "middle-market lending",
+      "미들마켓 대출"
+    ],
     "리파이낸싱": [
       "refinancing",
       "차환",
@@ -95,16 +149,25 @@
   },
 
   "FIRM_WATCHLIST": [
-    "Apollo",
-    "Ares",
     "Blue Owl",
+    "Blue Owl Capital",
+    "블루아울",
+    "Apollo",
+    "Apollo Global Management",
+    "Ares",
+    "Ares Management",
     "Oaktree",
     "Golub",
+    "Golub Capital",
     "HPS",
+    "HPS Investment Partners",
     "Sixth Street",
     "Blackstone",
+    "Blackstone Credit",
     "KKR",
+    "KKR Credit",
     "Carlyle",
+    "Carlyle Credit",
     "PIMCO",
     "Davidson Kempner",
     "Cerberus",
@@ -140,9 +203,13 @@
     "private credit",
     "사모대출",
     "사모크레딧",
+    "사모신용",
     "직접대출",
     "direct lending",
-    "direct lender",
+    "private lending",
+    "private loan",
+    "alternative credit",
+    "non-bank lending",
     "인수금융",
     "LBO financing",
     "acquisition financing",
@@ -154,13 +221,24 @@
     "special sits",
     "distressed debt",
     "unitranche",
-    "리파이낸싱",
+    "asset-based lending",
+    "ABL",
+    "sponsor-backed",
+    "middle market lending",
+    "opportunistic credit",
+    "credit opportunities",
+    "블루아울",
+    "Blue Owl",
+    "Apollo",
+    "Ares",
+    "Oaktree",
     "대주단",
     "주선",
     "클로징",
     "펀드 결성",
     "펀드레이징",
-    "투자유치"
+    "투자유치",
+    "리파이낸싱"
   ],
 
   "EXCLUDE_TITLE_KEYWORDS": [
@@ -253,6 +331,10 @@
     "special situations",
     "distressed debt",
     "unitranche",
+    "asset-based lending",
+    "ABL",
+    "alternative credit",
+    "non-bank lending",
     "대주단",
     "주선",
     "투자",
@@ -273,8 +355,15 @@
     "private credit",
     "사모대출",
     "사모크레딧",
+    "사모신용",
     "직접대출",
     "direct lending",
+    "private lending",
+    "private loan",
+    "alternative credit",
+    "non-bank lending",
+    "asset-based lending",
+    "ABL",
     "인수금융",
     "LBO financing",
     "credit fund",
@@ -299,6 +388,8 @@
     "Apollo",
     "Ares",
     "Blue Owl",
+    "Blue Owl Capital",
+    "블루아울",
     "Oaktree",
     "Golub",
     "HPS",
@@ -327,9 +418,9 @@
   "BLOCK_HOLIDAY": false,
 
   "PE_CANDIDATES": [
+    "Blue Owl",
     "Apollo",
     "Ares",
-    "Blue Owl",
     "Oaktree",
     "Golub",
     "HPS",
@@ -363,8 +454,7 @@
 
   "ALLOWLIST_STRICT": true,
 
-  "NAVER_ALLOW_SIDS": [
-  ],
+  "NAVER_ALLOW_SIDS": [],
 
   "NEWSAPI_DOMAINS": [
     "www.thebell.co.kr",
@@ -374,7 +464,7 @@
     "n.news.naver.com"
   ],
 
-  "NEWSAPI_QUERY": "(\"private debt\" OR \"private credit\" OR 사모대출 OR 직접대출 OR 인수금융 OR \"credit fund\" OR \"private credit fund\" OR \"NAV financing\" OR \"special situations\" OR \"distressed debt\" OR unitranche)",
+  "NEWSAPI_QUERY": "(\"private debt\" OR \"private credit\" OR 사모대출 OR 사모신용 OR 직접대출 OR \"direct lending\" OR \"private lending\" OR \"private loan\" OR 인수금융 OR \"credit fund\" OR \"private credit fund\" OR \"NAV financing\" OR \"special situations\" OR \"distressed debt\" OR unitranche OR \"non-bank lending\" OR \"asset-based lending\" OR ABL OR \"Blue Owl\" OR Apollo OR Ares OR Oaktree)",
 
   "USE_LLM_FILTER": true,
   "LLM_MODEL": "gpt-4o-mini",
@@ -395,6 +485,11 @@
     "사모채권": "private debt",
     "direct lending": "직접대출",
     "direct lender": "직접대출",
+    "private lending": "private lending",
+    "private loan": "private lending",
+    "alternative credit": "private debt",
+    "non-bank lending": "non-bank lending",
+    "non-bank lender": "non-bank lending",
     "special situations": "special sits",
     "스페셜시츄에이션": "special sits",
     "distressed debt": "distressed debt",
@@ -404,6 +499,7 @@
     "nav loan": "NAV financing",
     "nav 파이낸싱": "NAV financing",
     "unitranche financing": "unitranche",
+    "asset-based finance": "asset-based lending",
     "refinancing": "리파이낸싱",
     "bridge loan": "브릿지론",
     "non-performing loan": "NPL"
