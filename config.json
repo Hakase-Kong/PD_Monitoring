@@ -1,0 +1,414 @@
+{
+  "KEYWORDS": [
+    "프라이빗데트",
+    "private debt",
+    "private credit",
+    "사모대출",
+    "사모크레딧",
+    "직접대출",
+    "direct lending",
+    "direct lender",
+    "인수금융",
+    "LBO financing",
+    "acquisition financing",
+    "메자닌",
+    "후순위대출",
+    "선순위대출",
+    "senior debt",
+    "junior debt",
+    "unitranche",
+    "NAV financing",
+    "NAV 파이낸싱",
+    "special situations",
+    "special sits",
+    "distressed debt",
+    "stressed debt",
+    "구조화금융",
+    "structured credit",
+    "브릿지론",
+    "bridge loan",
+    "리파이낸싱",
+    "refinancing",
+    "차환",
+    "대출 매각",
+    "채권 매각",
+    "부실채권",
+    "NPL",
+    "워크아웃",
+    "회생채권",
+    "credit fund",
+    "private credit fund",
+    "크레딧 펀드",
+    "사모신용",
+    "사모채권"
+  ],
+
+  "KEYWORD_ALIASES": {
+    "프라이빗데트": [
+      "private debt",
+      "private credit",
+      "사모크레딧",
+      "사모신용",
+      "사모채권"
+    ],
+    "직접대출": [
+      "direct lending",
+      "direct lender",
+      "사모대출"
+    ],
+    "인수금융": [
+      "LBO financing",
+      "acquisition financing",
+      "buyout financing",
+      "인수금융"
+    ],
+    "메자닌": [
+      "전환사채",
+      "교환사채",
+      "신주인수권부사채",
+      "CB",
+      "EB",
+      "BW"
+    ],
+    "후순위대출": [
+      "junior debt",
+      "subordinated debt",
+      "후순위",
+      "후순위성 차입"
+    ],
+    "선순위대출": [
+      "senior debt",
+      "senior secured loan",
+      "선순위",
+      "선순위 담보대출"
+    ],
+    "unitranche": [
+      "유닛랜치",
+      "unitranche financing",
+      "one-stop financing"
+    ],
+    "NAV financing": [
+      "NAV loan",
+      "NAV 파이낸싱",
+      "NAV 파이낸스"
+    ],
+    "special situations": [
+      "special sits",
+      "구조조정 금융",
+      "상황형 투자"
+    ],
+    "distressed debt": [
+      "stressed debt",
+      "부실채권",
+      "NPL",
+      "워크아웃",
+      "회생채권"
+    ],
+    "리파이낸싱": [
+      "refinancing",
+      "리캡",
+      "차환",
+      "차환발행",
+      "차환대출"
+    ],
+    "브릿지론": [
+      "bridge loan",
+      "브릿지 파이낸싱",
+      "bridge financing"
+    ],
+    "credit fund": [
+      "private credit fund",
+      "크레딧 펀드",
+      "사모신용펀드"
+    ],
+    "구조화금융": [
+      "structured credit",
+      "구조화 크레딧",
+      "구조화 투자"
+    ]
+  },
+
+  "FIRM_WATCHLIST": [
+    "Apollo",
+    "Ares",
+    "Blue Owl",
+    "Oaktree",
+    "Golub",
+    "HPS",
+    "Sixth Street",
+    "Blackstone",
+    "KKR",
+    "Carlyle",
+    "PIMCO",
+    "Davidson Kempner",
+    "Cerberus",
+    "Bain Capital Credit",
+    "Apollo Global Management",
+    "IMM",
+    "MBK",
+    "한앤컴퍼니",
+    "VIG",
+    "스틱인베스트먼트",
+    "맥쿼리",
+    "KCGI"
+  ],
+
+  "ALLOW_DOMAINS": [
+    "news.naver.com",
+    "n.news.naver.com",
+    "www.thebell.co.kr",
+    "www.investchosun.com",
+    "dealsite.co.kr"
+  ],
+
+  "BLOCK_DOMAINS": [
+    "sports.naver.com",
+    "m.sports.naver.com"
+  ],
+
+  "INCLUDE_TITLE_KEYWORDS": [
+    "프라이빗데트",
+    "private debt",
+    "private credit",
+    "사모대출",
+    "사모크레딧",
+    "직접대출",
+    "direct lending",
+    "인수금융",
+    "LBO",
+    "메자닌",
+    "후순위대출",
+    "선순위대출",
+    "unitranche",
+    "NAV",
+    "리파이낸싱",
+    "차환",
+    "브릿지론",
+    "구조화금융",
+    "structured credit",
+    "special situations",
+    "distressed debt",
+    "NPL",
+    "부실채권",
+    "credit fund",
+    "크레딧 펀드",
+    "사모신용",
+    "사모채권"
+  ],
+
+  "EXCLUDE_TITLE_KEYWORDS": [
+    "야구",
+    "축구",
+    "배구",
+    "농구",
+    "골프",
+    "e스포츠",
+    "올림픽",
+    "월드컵",
+    "부고",
+    "부음",
+    "인사",
+    "승진",
+    "임명",
+    "발령",
+    "브랜드 평판",
+    "브랜드평판",
+    "연예",
+    "팬미팅",
+    "콘서트",
+    "뮤직비디오",
+    "공연",
+    "축제",
+    "페스티벌",
+    "주가",
+    "증시",
+    "상한가",
+    "하한가",
+    "장중",
+    "마감",
+    "코스피",
+    "코스닥",
+    "환율",
+    "기준금리",
+    "소비자물가"
+  ],
+
+  "EXCLUDE_TITLE_REGEX": [
+    "(상속세|물납|종부세|국세청)",
+    "(야구|축구|배구|농구|골프|e스포츠)",
+    "(연예|팬미팅|콘서트|뮤직비디오|공연|축제|페스티벌)"
+  ],
+
+  "DOMAIN_WEIGHTS": {
+    "www.thebell.co.kr": 3.0,
+    "www.investchosun.com": 3.0,
+    "dealsite.co.kr": 2.0,
+    "news.naver.com": 1.0,
+    "n.news.naver.com": 1.0
+  },
+
+  "STRICT_AMBIGUOUS_TOKENS": [
+    "대출",
+    "차입",
+    "차환",
+    "리파이낸싱",
+    "인수금융",
+    "메자닌",
+    "브릿지론",
+    "NPL",
+    "부실채권",
+    "채권 매각",
+    "대출 매각",
+    "구조화금융"
+  ],
+
+  "TRUSTED_SOURCES_FOR_FI": [
+    "www.thebell.co.kr",
+    "www.investchosun.com",
+    "dealsite.co.kr",
+    "news.naver.com",
+    "n.news.naver.com"
+  ],
+
+  "CONTEXT_REQUIRE_ANY": [
+    "프라이빗데트",
+    "private debt",
+    "private credit",
+    "사모대출",
+    "사모크레딧",
+    "직접대출",
+    "direct lending",
+    "인수금융",
+    "메자닌",
+    "후순위대출",
+    "선순위대출",
+    "unitranche",
+    "NAV financing",
+    "NAV 파이낸싱",
+    "리파이낸싱",
+    "차환",
+    "브릿지론",
+    "구조화금융",
+    "structured credit",
+    "special situations",
+    "special sits",
+    "distressed debt",
+    "stressed debt",
+    "NPL",
+    "부실채권",
+    "워크아웃",
+    "회생채권",
+    "credit fund",
+    "private credit fund",
+    "크레딧 펀드",
+    "Apollo",
+    "Ares",
+    "Blue Owl",
+    "Oaktree",
+    "Golub",
+    "HPS",
+    "Sixth Street",
+    "Blackstone",
+    "KKR",
+    "Carlyle",
+    "PIMCO",
+    "Davidson Kempner",
+    "재무자문",
+    "법률자문",
+    "주관사",
+    "대주단",
+    "신디케이션",
+    "차환 발행"
+  ],
+
+  "SCHEDULE_MODE": "주기(분)",
+  "CRON_DAYS_UI": [
+    "매일"
+  ],
+  "CRON_HOUR": 9,
+  "CRON_MINUTE": 0,
+
+  "RECENCY_HOURS": 24,
+  "CACHE_RETENTION_HOURS": 48,
+  "ONLY_WORKING_HOURS": true,
+  "BLOCK_WEEKEND": false,
+  "BLOCK_HOLIDAY": false,
+
+  "PE_CANDIDATES": [
+    "Apollo",
+    "Ares",
+    "Blue Owl",
+    "Oaktree",
+    "Golub",
+    "HPS",
+    "Sixth Street",
+    "Blackstone",
+    "KKR",
+    "Carlyle",
+    "PIMCO",
+    "Davidson Kempner",
+    "IMM",
+    "MBK",
+    "한앤컴퍼니",
+    "VIG",
+    "스틱",
+    "맥쿼리",
+    "KCGI"
+  ],
+
+  "HOLIDAYS": [],
+
+  "TELEGRAM_DISABLE_PREVIEW": true,
+  "SHOW_SOURCE_DOMAIN": false,
+  "NO_NEWS_SILENT": true,
+
+  "MAX_PER_KEYWORD": 8,
+  "PAGE_SIZE": 30,
+  "INTERVAL_MIN": 1440,
+
+  "ALLOWLIST_STRICT": false,
+
+  "NAVER_ALLOW_SIDS": [
+    "101"
+  ],
+
+  "NEWSAPI_DOMAINS": [
+    "www.thebell.co.kr",
+    "www.investchosun.com",
+    "dealsite.co.kr",
+    "news.naver.com",
+    "n.news.naver.com"
+  ],
+
+  "NEWSAPI_QUERY": "(\"private debt\" OR \"private credit\" OR 사모대출 OR 사모크레딧 OR 직접대출 OR \"direct lending\" OR 인수금융 OR 메자닌 OR 후순위대출 OR 선순위대출 OR unitranche OR \"NAV financing\" OR 리파이낸싱 OR 차환 OR 브릿지론 OR \"special situations\" OR \"distressed debt\" OR NPL OR 부실채권 OR \"credit fund\")",
+
+  "USE_LLM_FILTER": true,
+  "LLM_MODEL": "gpt-4o-mini",
+  "LLM_CONF_THRESHOLD": 0.7,
+  "LLM_MAX_TOKENS": 400,
+
+  "USE_LLM_DEDUP": true,
+  "LLM_DEDUP_WINDOW_HOURS": 48,
+
+  "TITLE_SIM_XSRC": 0.58,
+  "TITLE_SIM_SAMESRC": 0.58,
+  "SAME_SOURCE_WINDOW_HOURS": 24,
+
+  "SYNONYM_MAP": {
+    "private credit": "private debt",
+    "사모크레딧": "private debt",
+    "사모신용": "private debt",
+    "사모채권": "private debt",
+    "direct lending": "직접대출",
+    "direct lender": "직접대출",
+    "special situations": "special sits",
+    "distressed debt": "부실채권",
+    "stressed debt": "부실채권",
+    "refinancing": "리파이낸싱",
+    "bridge loan": "브릿지론",
+    "structured credit": "구조화금융",
+    "unitranche financing": "unitranche",
+    "senior secured loan": "선순위대출",
+    "subordinated debt": "후순위대출"
+  }
+}
