@@ -635,6 +635,7 @@ def llm_filter_items(items: List[dict], cfg: dict, env: dict) -> List[dict]:
                         "Articles are relevant only if private debt/private credit is a MAIN topic or core investment theme; a passing mention is NOT sufficient. "
                         "Exclude generic PF, bridge loan, NPL, asset quality, company management, executive/CEO, or macro/geopolitical articles unless private credit investors, credit funds, non-bank lenders, or lending structures are central to the story. "
                         "Exclude pure PE/M&A exit or equity-sale articles unless the private credit or special situations strategy itself is a central focus of the article, not just a referenced background detail. "
+                        "Acquisition financing mentioned in the context of a private equity (PE) deal is NOT sufficient unless non-bank lenders, private credit funds, or direct lending structures are clearly involved."
                         "Return JSON only."
                     ),
                 },
