@@ -456,6 +456,69 @@ def dedup(items: List[dict], cfg: dict | None = None) -> List[dict]:
 # -------------------------
 # 규칙 기반 필터/정렬
 # -------------------------
+def _term_in_text(text: str, term: str) -> bool:
+    """짧은 영문 약어(NAV/NPL/LBO/CB 등)는 단어 단위로, 그 외는 부분문자열로 매칭."""
+    if not text or not term:
+        return False
+    text_low = text.lower()
+    term_low = term.strip().lower()
+    if not term_low:
+        return False
+
+    # 짧은 영문/숫자 토큰의 substring 오탐 방지 (예: NAV -> navigation)
+    if re.fullmatch(r"[a-z0-9][a-z0-9&.+/-]{0,5}", term_low):
+        pat = rf"(?<![a-z0-9]){re.escape(term_low)}(?![a-z0-9])"
+        return re.search(pat, text_low, flags=re.IGNORECASE) is not None
+    return term_low in text_low
+
+
+def _any_term(text: str, terms: List[str]) -> bool:
+    return any(_term_in_text(text, t) for t in (terms or []) if t)
+
+
+def _pd_precision_gate(title: str, description: str, item: dict, cfg: dict) -> bool:
+    """PD 관련성의 최소 증거를 요구하는 고정밀 게이트.
+
+    운용사명(Apollo/VIG 등), M&A, 자문/주관사 같은 일반 IB 단어만으로는 통과시키지 않는다.
+    """
+    if not bool(cfg.get("PD_PRECISION_MODE", True)):
+        return True
+
+    title_text = title or ""
+    body_text = f"{title} {description} {item.get('summary', '')} {item.get('content', '')}"
+
+    strong = cfg.get("PD_STRONG_SIGNALS", []) or []
+    weak = cfg.get("PD_WEAK_SIGNALS", []) or []
+    confirm = cfg.get("PD_CONFIRMING_SIGNALS", []) or []
+    negative_pats = cfg.get("PD_NEGATIVE_PATTERNS", []) or []
+
+    title_strong = _any_term(title_text, strong)
+    body_strong = _any_term(body_text, strong)
+    body_weak = _any_term(body_text, weak)
+    body_confirm = _any_term(body_text, confirm)
+
+    has_negative = False
+    for pat in negative_pats:
+        try:
+            if re.search(pat, body_text, flags=re.IGNORECASE):
+                has_negative = True
+                break
+        except re.error:
+            log.warning("잘못된 PD_NEGATIVE_PATTERNS 패턴 무시: %s", pat)
+
+    # 제목에 명백한 PD 용어가 있으면 우선 통과.
+    if title_strong:
+        return True
+
+    # 본문/요약에 강한 PD 용어가 실제 금융행위 맥락과 같이 등장하면 통과.
+    if body_strong and body_confirm:
+        return True
+
+    # 리파이낸싱/워크아웃/브릿지론 같은 애매한 용어는 추가 금융 맥락이 필수.
+    if body_weak and body_confirm and not has_negative:
+        return True
+
+    return False
 def should_drop(item: dict, cfg: dict) -> bool:
     url = item.get("url", "")
     title = (item.get("title") or "").strip()
@@ -478,16 +541,18 @@ def should_drop(item: dict, cfg: dict) -> bool:
         sids = set(cfg.get("NAVER_ALLOW_SIDS", []) or [])
         if sids:
             sid = _naver_sid(url)
+            if (sid not in sids) and bool(cfg.get("NAVER_SID_STRICT", True)):
+                return True
             if sid and sid not in sids:
                 return True
 
     include = cfg.get("INCLUDE_TITLE_KEYWORDS", []) or []
     full_text_for_include = f"{title} {description}".lower()
-    if include and not any(w.lower() in full_text_for_include for w in include):
+    if include and not _any_term(full_text_for_include, include):
         return True
 
     for w in (cfg.get("EXCLUDE_TITLE_KEYWORDS", []) or []):
-        if w and w.lower() in full_text_for_include:
+        if w and _term_in_text(full_text_for_include, w):
             return True
 
     for pat in (cfg.get("EXCLUDE_TITLE_REGEX", []) or []):
@@ -499,15 +564,18 @@ def should_drop(item: dict, cfg: dict) -> bool:
 
     context_any = cfg.get("CONTEXT_REQUIRE_ANY", []) or []
     context = f"{title} {description} {item.get('summary', '')} {item.get('content', '')}".lower()
-    has_context = any(k.lower() in context for k in context_any)
+    has_context = _any_term(context, context_any)
 
     trusted = set(cfg.get("TRUSTED_SOURCES_FOR_FI", cfg.get("ALLOW_DOMAINS", [])) or [])
     amb_tokens = set(t.lower() for t in (cfg.get("STRICT_AMBIGUOUS_TOKENS", []) or []))
-    has_ambiguous = any(tok in context for tok in amb_tokens)
+    has_ambiguous = any(_term_in_text(context, tok) for tok in amb_tokens)
 
     if not has_context:
         if not (src in trusted and has_ambiguous):
             return True
+
+    if not _pd_precision_gate(title, description, item, cfg):
+        return True
 
     return False
 
@@ -565,7 +633,17 @@ credit fund raising 과 관련이 있는지 판단하세요.
 - 단순 회사채 발행 기사
 - 단순 금리/거시 기사
 - 순수 PE 지분 인수 기사(M&A 자체만 있고 대출/크레딧 구조가 없는 경우)
+- PE/운용사의 일반 블라인드펀드 결성·클로징 기사(credit fund가 아닌 경우)
+- 운용사 이름(Apollo, VIG, KKR 등)만 등장하고 실제 debt/credit 거래가 없는 기사
+- 워크아웃의 자문사 선정, 로펌 인사/영입 등 자문업계 기사
+- 일반 CB/EB/BW 발행 기사(사모대출·크레딧 투자자가 자금 공급자로 명시되지 않은 경우)
+- AI/인프라 투자자금 조달, 회사채·은행대출 기사라도 private credit/direct lender가 명시되지 않으면 제외
 - 일반 주식시장 기사
+
+중요:
+- FIRM_WATCHLIST의 회사명이 있다는 사실만으로 relevant=true로 판단하지 마세요.
+- 'financing', 'fund', 'debt', 'loan' 같은 일반 단어만으로도 relevant=true로 판단하지 마세요.
+- 실제 사모신용 자본 제공자, 크레딧 펀드, 직접대출 구조, 인수금융/메자닌/NAV financing 등 PD 거래의 실질이 확인되어야 합니다.
 
 판단 기준:
 - 핵심 키워드: {', '.join(kw)}
@@ -631,10 +709,6 @@ def llm_filter_items(items: List[dict], cfg: dict, env: dict) -> List[dict]:
                         "or private credit fund activities are involved or plausibly involved. "
                         "Exclude pure equity M&A, general bank lending news, vanilla bond issuance, stock market news, "
                         "and general macro commentary unless clearly tied to private debt/private credit. "
-                        "Refinancing alone is NOT sufficient unless private credit funds, non-bank lenders, or acquisition financing structures are clearly involved. "
-                        "Articles are relevant only if private debt/private credit is a MAIN topic or core investment theme; a passing mention is NOT sufficient. "
-                        "Exclude generic PF, bridge loan, NPL, asset quality, company management, executive/CEO, or macro/geopolitical articles unless private credit investors, credit funds, non-bank lenders, or lending structures are central to the story. "
-                        "Exclude pure PE/M&A exit or equity-sale articles unless the private credit or special situations strategy itself is a central focus of the article, not just a referenced background detail. "
                         "Return JSON only."
                     ),
                 },
@@ -655,14 +729,15 @@ def llm_filter_items(items: List[dict], cfg: dict, env: dict) -> List[dict]:
                 isinstance(j, dict)
                 and j.get("relevant") is True
                 and float(j.get("confidence", 0.0)) >= conf_th
-                and cat in {"private debt", "credit fund", "distressed/special sits", "general finance"}
+                and cat in {"private debt", "credit fund", "distressed/special sits"}
             ):
                 it["_llm"] = j
                 out.append(it)
 
         except Exception as e:
             log.warning("LLM 필터 처리 실패: %s", e)
-            out.append(it)
+            if bool(cfg.get("LLM_FAIL_OPEN", False)):
+                out.append(it)
 
     return out
 
